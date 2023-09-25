@@ -1,0 +1,57 @@
+.phai{
+    border: 0 solid gray;
+    border-radius: 0 20px 20px 0 ;
+}
+
+.sidebar{
+    background: white;
+    overflow: auto;
+}
+.side-bar .menu{
+    width: 100%;
+    margin-top: 80px;
+}
+
+.side-bar .menu .item{
+    position: relative;
+    cursor: pointer;
+}
+
+.side-bar .menu .item a{
+    color: orangered;
+    font-size: 16px;
+    text-decoration: none;
+    display: block;
+    padding: 5px 30px;
+    line-height: 30px;
+}
+
+.side-bar .menu .item a:hover{
+    background: orangered;
+    color: white;
+    transition: 0.3s ease;
+    border-radius: 7px;
+}
+
+.side-bar .menu .item i{
+    margin-right: 15px;
+}
+
+.dropdown{
+    color: gray;
+}
+
+.side-bar .menu .item a .dropdown{
+    position: absolute;
+    right:0;
+    transition: 0.3s ease;
+}
+
+.side-bar .menu .item .sub-menu a{
+    padding-left: 80px;
+}
+.function:hover{
+    background: orangered;
+    color: white;
+    border-radius: 5px;
+}

@@ -1,0 +1,7 @@
+create TABLE users(
+	user_id INT(3) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	username VARCHAR(30) NOT NULL UNIQUE, #duy nhất không trùng lặp-unique
+	email VARCHAR(50) NOT NULL UNIQUE,
+	pass VARCHAR(50) NOT NULL;
+	create_at DATETIME DEFAULT CURRENT_TIMESTAMP()
+)
