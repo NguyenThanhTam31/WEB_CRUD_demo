@@ -50,6 +50,7 @@
             <div class="item"><a href="" #><i class="bi bi-file-earmark-check"></i>Forms<i class="bi bi-caret-right-fill dropdown"></i></a></div>
             <div class="item"><a href="" #><i class="bi bi-file-earmark-spreadsheet"></i>Table<i class="bi bi-caret-right-fill dropdown"></i></a></div>
             <div class="item"><a href="" #><i class="bi bi-file-earmark-break"></i>Pages<i class="bi bi-caret-right-fill dropdown"></i></a></div>
+            
           </div>
         </div>
       </div>
@@ -111,7 +112,7 @@
                   <td>
                     <a href="Infor.php?sid=<?php echo $r['id']; ?>" style="color:orangered"><i class="bi bi-eye-fill ms-2 function"></i></a>
                     <a href="edit.php?sid=<?php echo $r['id']; ?>" style="color:orangered"><i class="bi bi-pencil-square function"></i></a>
-                    <a href="" data-bs-toggle="modal" data-bs-target="<?php echo $r['id']; ?>" style="color:orangered"><i class="bi bi-trash-fill function"></i></a>
+                    <a href="delete.php" data-bs-toggle="modal" data-bs-target="<?php echo $r['id']; ?>" style="color:orangered"><i class="bi bi-trash-fill function"></i></a>
 
                     <div class="modal fade" id="<?php echo $r['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
