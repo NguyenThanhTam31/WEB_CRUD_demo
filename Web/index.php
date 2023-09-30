@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<?php
+session_start();
+if (!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
+    // Người dùng chưa đăng nhập, chuyển hướng về trang đăng nhập
+    header("Location: login/form_login.php");
+    exit();
+}
+?> 
+
 <html lang="en">
 
 <head>
@@ -14,6 +23,7 @@
 </head>
 
 <body>
+  
   <div class="container-fluid bg-gray">
     <div class="row">
       <div class="col-2 phai">
@@ -50,7 +60,7 @@
             <div class="item"><a href="" #><i class="bi bi-file-earmark-check"></i>Forms<i class="bi bi-caret-right-fill dropdown"></i></a></div>
             <div class="item"><a href="" #><i class="bi bi-file-earmark-spreadsheet"></i>Table<i class="bi bi-caret-right-fill dropdown"></i></a></div>
             <div class="item"><a href="" #><i class="bi bi-file-earmark-break"></i>Pages<i class="bi bi-caret-right-fill dropdown"></i></a></div>
-            
+
           </div>
         </div>
       </div>

@@ -90,6 +90,9 @@
 									<div class="form-group">
 										<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
 									</div>
+                                    <div class="form-group">
+										<input type="text" name="sdt" id="username" tabindex="3" class="form-control" placeholder="Phone number" value="">
+									</div>
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
