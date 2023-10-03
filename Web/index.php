@@ -1,12 +1,4 @@
 <!DOCTYPE html>
-<?php
-session_start();
-if (!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
-    // Người dùng chưa đăng nhập, chuyển hướng về trang đăng nhập
-    header("Location: login/form_login.php");
-    exit();
-}
-?> 
 
 <html lang="en">
 
@@ -19,11 +11,19 @@ if (!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <link rel="stylesheet" href="./style.css">
+  <?php
+  session_start();
 
+  // Kiểm tra xem phiên đăng nhập đã được tạo hay chưa
+  if (!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
+    header("Location: form_login.php");
+    exit();
+  }
+  ?>
 </head>
 
 <body>
-  
+
   <div class="container-fluid bg-gray">
     <div class="row">
       <div class="col-2 phai">
@@ -122,27 +122,7 @@ if (!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
                   <td>
                     <a href="Infor.php?sid=<?php echo $r['id']; ?>" style="color:orangered"><i class="bi bi-eye-fill ms-2 function"></i></a>
                     <a href="edit.php?sid=<?php echo $r['id']; ?>" style="color:orangered"><i class="bi bi-pencil-square function"></i></a>
-                    <a href="delete.php" data-bs-toggle="modal" data-bs-target="<?php echo $r['id']; ?>" style="color:orangered"><i class="bi bi-trash-fill function"></i></a>
-
-                    <div class="modal fade" id="<?php echo $r['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                            ...
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                            <a href="delete.php?sid=<?php echo $r['id']; ?>"><i class="bi bi-trash-fill function"></i></a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- <a onclick="return confirm('Bạn có muốn xoá sinh viên này không?')" href="delete.php?sid=<?php echo $r['id']; ?>" style="color:orangered"><i class="bi bi-trash-fill function"></i></a> -->
+                    <a onclick="return confirm('Bạn có muốn xoá sinh viên này không?')" href="delete.php?sid=<?php echo $r['id']; ?>" style="color:orangered"><i class="bi bi-trash-fill function"></i></a>
                   </td>
                 </tr>
               <?php

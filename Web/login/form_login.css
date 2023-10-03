@@ -97,6 +97,16 @@ body {
 	background-color: #1CA347;
 	border-color: #1CA347;
 }
+#register-submit{
+	background-color: #029f5b;
+}
+#register-submit:hover{
+	color: rgb(0, 157, 255);
+}
 #login-submit{
 	background-color: #029f5b;
+}
+.error-message{
+	color: red;
+	
 }

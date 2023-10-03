@@ -6,31 +6,45 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
 
-    <link rel="stylesheet" href="./form_login.css">
-    <script src="./form_login.js"></script>
+	<link rel="stylesheet" href="./form_login.css">
+	<script src="./form_login.js"></script>
 
-    <!--Bootsrap 4 CDN-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<!--Bootsrap 4 CDN-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <!--Fontawesome CDN-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<!--Fontawesome CDN-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-    <!--Custom styles-->
-    <link rel="stylesheet" type="text/css" href="style_login.css">
+	<!--Custom styles-->
+	<link rel="stylesheet" type="text/css" href="style_login.css">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 
 </head>
 
 <body>
-
-<div class="container">
-    	<div class="row">
+	<?php
+	session_start();
+	if (isset($_SESSION['login_error'])) {
+		echo '<div class="error-message">' . $_SESSION['login_error'] . '</div>';
+		unset($_SESSION['login_error']); // Xóa thông báo lỗi sau khi đã hiển thị
+	}
+	if (isset($_SESSION['SignUp_error'])) {
+		echo '<div class="error-message">' . $_SESSION['SignUp_error'] . '</div>';
+		unset($_SESSION['SignUp_error']); // Xóa thông báo lỗi sau khi đã hiển thị
+	}
+	if (isset($_SESSION['SignUp_success'])) {
+		echo '<div class="error-message">' . $_SESSION['SignUp_success'] . '</div>';
+		unset($_SESSION['SignUp_success']); // Xóa thông báo lỗi sau khi đã hiển thị
+	}
+	?>
+	<div class="container">
+		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
 				<div class="panel panel-login">
 					<div class="panel-heading">
@@ -47,7 +61,7 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-                                <!-- Log in -->
+								<!-- Log in -->
 								<form id="login-form" action="./process_login.php" method="post" role="form" style="display: block;">
 									<div class="form-group">
 										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Email or phone number" value="">
@@ -70,14 +84,14 @@
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="text-center">
-													<a href="https://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a>
+													<a href="./form_forgotPW.php" tabindex="5" class="forgot-password">Forgot Password?</a>
 												</div>
 											</div>
 										</div>
 									</div>
 								</form>
-                                <!-- Register -->
-								<form id="register-form" action="https://phpoll.com/register/process" method="post" role="form" style="display: none;">
+								<!-- Register -->
+								<form id="register-form" action="./process_signup.php" method="post" role="form" style="display: none;">
 									<div class="form-group">
 										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
 									</div>
@@ -90,8 +104,8 @@
 									<div class="form-group">
 										<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
 									</div>
-                                    <div class="form-group">
-										<input type="text" name="sdt" id="username" tabindex="3" class="form-control" placeholder="Phone number" value="">
+									<div class="form-group">
+										<input type="text" name="sdt" id="sdt" tabindex="3" class="form-control" placeholder="Phone number" value="">
 									</div>
 									<div class="form-group">
 										<div class="row">
